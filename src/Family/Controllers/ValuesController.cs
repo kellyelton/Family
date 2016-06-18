@@ -13,6 +13,11 @@ namespace Family.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            using(var con = new DataContext()) {
+                foreach(var a in con.Users) {
+                    Console.WriteLine(a.Email);
+                }
+            }
             return new string[] { "value1", "value2" };
         }
 
